@@ -1,18 +1,17 @@
-#include "picture.h" // Incluimos la definición de la clase Picture
+#include <iostream>
+#include "Picture.h"
 
 int main() {
-    // Crear varios objetos Picture
-    std::vector<double> coeffs1 = {1.5, 2.7, -3.2};
-    std::vector<std::string> indets1 = {"x", "y", "z"};
-    Picture pic1(coeffs1, indets1);
+    Picture picture;
+    picture.readFromFile("matrix.txt");
+    picture.printMatrix();
 
-    std::vector<double> coeffs2 = {0.8, -2.1, 4.3};
-    std::vector<std::string> indets2 = {"a", "b", "c"};
-    Picture pic2(coeffs2, indets2);
-
-    // Imprimir la información de los objetos Picture
-    pic1.print();
-    pic2.print();
+    // Cambiar el valor de un elemento
+    picture.setValue(0, 0, 1);
+    
+    // Imprimir la matriz después de cambiar el valor
+    std::cout << "" << std::endl;
+    picture.printMatrix();
 
     return 0;
 }

@@ -14,28 +14,31 @@ void Picture::readFromFile(const std::string& filename) {
     std::string line;
     while (std::getline(file, line)) {
         std::vector<std::pair<std::string, int>> row;
-        std::stringstream ss(line); // Utilizamos stringstream para separar por comas
+        std::stringstream ss(line);
         std::string item;
-        while (std::getline(ss, item, ',')) {
-            // Eliminamos espacios en blanco al inicio y al final del item
-            item = std::regex_replace(item, std::regex("^\\s+|\\s+$"), "");
-            // Si el item está vacío, pasamos al siguiente
-            if (item.empty()) {
-                continue;
-            }
-            // Comprobamos si el item tiene el formato "nombre(valor)"
-            std::regex pattern(R"(\s*(\w+)\((\d+),?(\d*)\)\s*)");
-            std::smatch match;
-            if (std::regex_match(item, match, pattern)) {
-                std::string name = match[1];
-                int value1 = std::stoi(match[2]);
-                int value2 = match[3].str().empty() ? 0 : std::stoi(match[3]);
-                row.push_back(std::make_pair(name, value1 * 10 + value2));
+        while (ss >> item) {
+            // Check if the item starts with 'p(' and ends with ')'
+            if (item.substr(0, 2) == "p(" && item[item.length() - 1] == ')') {
+                // Extract the numbers between '(' and ')'
+                std::string numbers = item.substr(2, item.length() - 3);
+                std::stringstream numStream(numbers);
+                std::string number;
+                int value1, value2;
+                if (std::getline(numStream, number, ',')) {
+                    value1 = std::stoi(number);
+                    if (std::getline(numStream, number, ',')) {
+                        value2 = std::stoi(number);
+                    } else {
+                        value2 = 0;
+                    }
+                }
+                row.push_back(std::make_pair(item, value1 * 10 + value2));
             } else {
+                // For items that do not match 'p(x,y)', assume value as 0
                 row.push_back(std::make_pair(item, 0));
             }
         }
-        if (!row.empty()) { // Añadimos la fila solo si no está vacía
+        if (!row.empty()) {
             matrix.push_back(row);
         }
     }
@@ -53,9 +56,9 @@ void Picture::printMatrix() {
 }
 
 void Picture::setValue(int rowIdx, int colIdx, int value) {
-    if (rowIdx < 0 || rowIdx >= matrix.size() || colIdx < 0 || colIdx >= matrix[rowIdx].size()) {
+    if (rowIdx < 0 || static_cast<std::size_t>(rowIdx) >= matrix.size() || colIdx < 0 || static_cast<std::size_t>(colIdx) >= matrix[static_cast<std::size_t>(rowIdx)].size()) {
         std::cerr << "Error: Index out of range." << std::endl;
         return;
     }
-    matrix[rowIdx][colIdx].second = value;
+    matrix[static_cast<std::size_t>(rowIdx)][static_cast<std::size_t>(colIdx)].second = value;
 }
