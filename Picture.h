@@ -1,22 +1,18 @@
 #ifndef PICTURE_H
 #define PICTURE_H
 
-#include "Dato.h"
 #include <vector>
+#include <utility>
+#include <string>
 
-template<typename T>
 class Picture {
 private:
-    std::vector<std::vector<T>> data;
+    std::vector<std::vector<std::pair<std::string, int>>> matrix;
 
 public:
-    Picture(int rows, int cols);
-    void setElement(int row, int col, T value);
-    T* getElement(int row, int col) const;
-    int numRows() const;
-    int numCols() const;
-    void print() const;
-    ~Picture();
+    void readFromFile(const std::string& filename);
+    void printMatrix();
+    void setValue(int rowIdx, int colIdx, int value);
 };
 
-#endif
+#endif // PICTURE_H
