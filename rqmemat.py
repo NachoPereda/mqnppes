@@ -29,42 +29,48 @@ def generate_rmqe_formula(n, m):
 
     return rmqe_formula
 
-def to_matrix(n,rmqe):
+def to_matrix(n, rmqe):
     filas = n + 3
     columnas = n * 3
     matriz = [['$'] * columnas for _ in range(filas)]
-    fil=0
-    col=0
+    fil = 0
+    col = 0
     terms = re.split(r'\s*\+\s*', rmqe)
 
-    # Imprimir los términos separados
+    # Convertir cada término en una lista de factores
+    term_list = []
     for term in terms:
         factors = re.split(r'\s*\*\s*', term)
+        term_list.append(factors)
+
+    # Insertar los términos en la matriz
+    for factors in term_list:
         for factor in factors:
             if col == columnas:
-               fil+=1
-               if fil == n:
-                  col=0
-               else:
-                  col=3*fil
+                fil += 1
+                if fil == n:
+                    col = 0
+                else:
+                    col = 3 * fil
             else:
                 if fil == n:
-                   if (col+1)%(3)==0:
-                      col+=1
-                      if col == columnas:
-                        fil+=1
-                        col=0
-            if fil==n+1:
-                matriz[fil][columnas-1]='s_k'
-                matriz[fil+1][0]='c0'
-            if fil==n+2:
-               matriz[fil][0]='c0'
-            matriz[fil][col]=factor
-            col+=1
+                    if (col + 1) % (3) == 0:
+                        col += 1
+                        if col == columnas:
+                            fil += 1
+                            col = 0
+                if fil == n + 1:
+                    matriz[fil][columnas - 1] = 's_k'
+                    matriz[fil + 1][0] = 'c0'
+                if fil == n + 2:
+                    matriz[fil][0] = 'c0'
+                matriz[fil][col] = [factor]  # Guardar factor como lista
+                col += 1
 
+    # Insertar coeficientes c en la última fila
     for i in range(n):
-        matriz[filas-1][((i+1)*3)-1]='c'+ str(i + 1)
-            			   
+        matriz[filas - 1][((i + 1) * 3) - 1] = ['c' + str(i + 1)]
+
     return matriz
 
 
@@ -82,14 +88,7 @@ def main():
     for fila in matrix:
         print(fila)
     print(tabulate(matrix, tablefmt="fancy_grid"))
-    indices_coeficientes = []
-
-    for i, fila in enumerate(matrix):
-        for j, elemento in enumerate(fila):
-            if elemento.startswith('p('):
-                indices_coeficientes.append((i, j))
     
-    print("Índices de los coeficientes 'p':", indices_coeficientes)
     
 
 if __name__ == "__main__":
