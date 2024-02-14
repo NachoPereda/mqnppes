@@ -1,5 +1,5 @@
 # Nombre del ejecutable
-TARGET = picture
+TARGET = simulate
 
 # Compilador a utilizar
 CXX = g++
@@ -8,7 +8,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 
 # Archivos fuente
-SRCS = main.cpp picture.cpp
+SRCS = mat.cpp #main3.cpp Coefficient.cpp Indeterminate.cpp Picture.cpp #plotgen.cpp #main.cpp picture.cpp
 
 # Archivos objetos generados a partir de los archivos fuente
 OBJS = $(SRCS:.cpp=.o)
