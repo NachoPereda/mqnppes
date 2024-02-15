@@ -13,6 +13,7 @@ public:
     void readFromFile(const std::string& filename);
     void printMatrix();
     void setValue(int rowIdx, int colIdx, int value);
+    Picture clone() const;
 };
 
 #endif // PICTURE_H
