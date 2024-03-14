@@ -1,0 +1,3 @@
+Cadena de bits generada, hasheada y particionada:
+0507f35f17f29788b77a67050c64b40d6e4b7bab48e4fe
+299ed28df116d03c72
