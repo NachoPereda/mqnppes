@@ -82,7 +82,22 @@ void Picture::setValue(int rowIdx, int colIdx, int value)
     matrix[static_cast<std::size_t>(rowIdx)][static_cast<std::size_t>(colIdx)].second = value;
 }
 
+std::string Picture::getId(int rowIdx, int colIdx)
+{
+    if (rowIdx < 0 || static_cast<std::size_t>(rowIdx) >= matrix.size() || colIdx < 0 || static_cast<std::size_t>(colIdx) >= matrix[static_cast<std::size_t>(rowIdx)].size())
+    {
+        std::cerr << "Error: Index out of range." << std::endl;
+        return "Error";
+    }
+    else 
+        return matrix[static_cast<std::size_t>(rowIdx)][static_cast<std::size_t>(colIdx)].first;
+}
+
 Picture Picture::clone() const {
     // Utilizar el constructor de copia para crear una nueva instancia
     return Picture(*this);
+}
+
+const std::vector<std::vector<std::pair<std::string, int>>>& Picture::getMatrix() const {
+    return matrix;
 }

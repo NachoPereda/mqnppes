@@ -46,6 +46,7 @@ def to_matrix(n, rmqe):
     # Insertar los términos en la matriz
     for factors in term_list:
         for factor in factors:
+            print(fil, n)
             if col == columnas:
                 fil += 1
                 if fil == n:
@@ -74,6 +75,48 @@ def to_matrix(n, rmqe):
     return matriz
 
 
+def to_matriXx(n, rmqe):
+    filas = n + 3
+    columnas = n * 3
+    matriz = [["$" for _ in range(columnas)] for _ in range(filas)]
+    fil = 0
+    col = 0
+
+    term_regex = re.compile(r'\s*\+\s*')
+    factor_regex = re.compile(r'\s*\*\s*')
+    terms = re.split(term_regex, rmqe)
+
+    for term in terms:
+        factors = re.split(factor_regex, term)
+
+        for factor in factors:
+            if col == columnas:
+                fil += 1
+                col = 0 if fil == n else 3 * fil
+
+            if fil == n:
+                if (col + 1) % 3 == 0:
+                    col += 1
+                    if col == columnas:
+                        fil += 1
+                        col = 0
+
+            if fil == n + 1:
+                matriz[fil][columnas - 1] = "s_k"
+                matriz[fil + 1][0] = "c0"
+
+            if fil == n + 2:
+                matriz[fil][0] = "c0"
+
+            matriz[fil][col] = factor
+            col += 1
+
+    for i in range(n):
+        matriz[filas - 1][(i + 1) * 3 - 1] = "c" + str(i + 1)
+
+    return matriz
+
+
 def main():
     # Get user input for n and m
     n = int(input("Enter the value for n: "))
@@ -83,7 +126,7 @@ def main():
     rmqe_formula = generate_rmqe_formula(n, m)
     print(f'rmqe = {rmqe_formula}')
     # Generate picture from rqme
-    matrix = to_matrix(n,rmqe_formula)
+    matrix = to_matriXx(n,rmqe_formula)
     print("Picture:")
     for fila in matrix:
         print(fila)

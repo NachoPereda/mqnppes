@@ -1,5 +1,62 @@
 #include <iostream>
 #include "Picture.h"
+#include <cmath>
+
+std::vector<std::vector<int>> generateBinaryCombinations(int numBits) {
+    int numCombinations = std::pow(2, numBits);
+    std::vector<std::vector<int>> truthTable(numCombinations, std::vector<int>(numBits, 0));
+    
+    for (int i = 0; i < numCombinations; ++i) {
+        int value = i;
+        for (int j = 0; j < numBits; ++j) {
+            truthTable[i][j] = value % 2;
+            value /= 2;
+        }
+    }
+
+    for (const auto& row : truthTable) {
+        for (int value : row) {
+            std::cout << value << " ";
+        }
+        std::cout << std::endl;
+    }
+    
+    return truthTable;
+}
+
+std::vector<Picture> generateAllPictures(const Picture& originalPicture) {
+    std::vector<Picture> pictures;
+    Picture currentPicture = originalPicture.clone();
+    int numXLabels = 3;
+    
+    const std::vector<std::vector<std::pair<std::string, int>>>& matrix = originalPicture.getMatrix(); // Acceder a la matriz
+    
+    std::vector<std::vector<int>> combinations = generateBinaryCombinations(numXLabels);
+    
+    for (const auto& combination : combinations) {
+        
+        currentPicture = originalPicture.clone();
+        
+        int xIndex = 0;
+        for (int i = 0; i < int(matrix.size()); ++i) {
+            for (int j = 0; j < int(matrix[i].size()); ++j) {
+                if (matrix[i][j].first.substr(0, 2) == "x1") {
+                    currentPicture.setValue(i, j, combination[xIndex]);
+                }
+                if (matrix[i][j].first.substr(0, 2) == "x2") {
+                    currentPicture.setValue(i, j, combination[xIndex+1]);
+                }
+                if (matrix[i][j].first.substr(0, 2) == "x3") {
+                    currentPicture.setValue(i, j, combination[xIndex+2]);
+                }
+            }
+        }
+        
+        pictures.push_back(currentPicture);
+    }
+    
+    return pictures;
+}
 
 int main() {
     Picture picture;
@@ -7,11 +64,22 @@ int main() {
     picture.printMatrix();
 
     // Cambiar el valor de un elemento
-    picture.setValue(0, 0, 1);
+    //picture.setValue(0, 0, 1);
     
     // Imprimir la matriz después de cambiar el valor
-    std::cout << "" << std::endl;
-    picture.printMatrix();
+    //std::cout << "" << std::endl;
+    //picture.printMatrix();
+
+    // Generar todas las Pictures con combinaciones de valores para las etiquetas "x"
+    std::vector<Picture> allPictures = generateAllPictures(picture);
+    
+    // Imprimir todas las Pictures generadas
+    for (int i = 0; i < int(allPictures.size()); ++i) {
+        std::cout << "Picture " << i+1 << ":\n";
+        allPictures[i].printMatrix();
+        std::cout << std::endl;
+    }
+
 
     return 0;
 }
