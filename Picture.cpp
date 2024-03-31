@@ -58,6 +58,22 @@ void Picture::readFromFile(const std::string &filename)
     }
 
     file.close();
+
+    //Establecer valor de n
+    n = 0;                         // Reiniciar n a 0
+    std::regex x_regex("x(\\d+)"); // Expresión regular para buscar x seguido de un número
+    for (const auto &row : matrix)
+    {
+        for (const auto &elem : row)
+        {
+            std::smatch match;
+            if (std::regex_search(elem.first, match, x_regex))
+            {
+                int x_value = std::stoi(match[1]); // Convertir el número de x a entero
+                n = std::max(n, x_value);          // Actualizar n si se encuentra un número de x más alto
+            }
+        }
+    }
 }
 
 void Picture::printMatrix()
@@ -70,6 +86,7 @@ void Picture::printMatrix()
         }
         std::cout << std::endl;
     }
+    std::cout << "N: " << n << std::endl;
 }
 
 void Picture::setValue(int rowIdx, int colIdx, int value)
@@ -100,4 +117,9 @@ Picture Picture::clone() const {
 
 const std::vector<std::vector<std::pair<std::string, int>>>& Picture::getMatrix() const {
     return matrix;
+}
+
+int Picture::getN() const
+{
+    return n;
 }
