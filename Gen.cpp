@@ -1,6 +1,6 @@
-#include <iostream>
-#include "Picture.h"
 #include <cmath>
+#include <iostream>
+#include "gen.h"
 
 std::vector<std::vector<int>> generateBinaryCombinations(int numBits) {
     int numCombinations = std::pow(2, numBits);
@@ -71,30 +71,4 @@ std::vector<Picture> generateAllPictures(const Picture& originalPicture) {
     }
     
     return pictures;
-}
-
-int main() {
-    Picture picture;
-    picture.readFromFile("matrix.txt");
-    picture.printMatrix();
-
-    // Cambiar el valor de un elemento
-    //picture.setValue(0, 0, 1);
-    
-    // Imprimir la matriz después de cambiar el valor
-    //std::cout << "" << std::endl;
-    //picture.printMatrix();
-
-    // Generar todas las Pictures con combinaciones de valores para las etiquetas "x"
-    std::vector<Picture> allPictures = generateAllPictures(picture);
-    
-    // Imprimir todas las Pictures generadas
-    for (int i = 0; i < int(allPictures.size()); ++i) {
-        std::cout << "Picture " << i+1 << ":\n";
-        allPictures[i].printMatrix();
-        std::cout << std::endl;
-    }
-
-
-    return 0;
 }
