@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Picture.h"
 #include "Gen.h"
-#include "Gnode.h"
 #include <cmath>
 
 // std::vector<std::vector<int>> generateBinaryCombinations(int numBits) {
@@ -82,9 +81,6 @@ int main() {
         allPictures[i].printMatrix();
         std::cout << std::endl;
     }
-    Gnode gnode;
-    gnode.asignarPicture(allPictures);
-    gnode.setMask(picture.getN() + 2);
 
 
     return 0;
