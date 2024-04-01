@@ -1,7 +1,8 @@
 #include <iostream>
 #include "Picture.h"
+// #include "Network/Network.h"
 #include "Network/Gen.h"
-// #include "Network/Eval1.h"
+#include "Network/Eval1.h"
 #include <cmath>
 
 // std::vector<std::vector<int>> generateBinaryCombinations(int numBits) {
@@ -85,9 +86,9 @@ int main() {
         std::cout << std::endl;
     }
     
-    // Eval1 eval;
-    // eval.SetPictures(allPictures);
-    // eval.setMask();
+    Eval1 eval;
+    eval.SetPictures(allPictures);
+    eval.setMask();
 
 
     return 0;

@@ -13,7 +13,7 @@ void Eval1::linearEvaluation()
 {
 }
 
-void Network::setMask()
+void Eval1::setMask()
 {
     int numRows = pictures[0].getRows();
     mask = numRows - 2;

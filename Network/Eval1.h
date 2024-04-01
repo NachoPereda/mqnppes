@@ -11,6 +11,7 @@ class Eval1 : public Network
 {
 public:
     void linearEvaluation();
+    void setMask() override;
 };
 
 #endif //_EVAL1_H
