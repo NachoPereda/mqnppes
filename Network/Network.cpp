@@ -8,6 +8,11 @@
  * Network implementation
  */
 
+void Network::SetPictures(std::vector<Picture> received_pictures)
+{
+    pictures = received_pictures;
+}
+
 void Network::setMask()
 {
 }

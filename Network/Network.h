@@ -10,12 +10,13 @@
 class Network
 {
 public:
+    void SetPictures(std::vector<Picture> received_pictures);
+    void setMask();
+    void unmask();
+
+private:
     std::vector<Picture> pictures;
     int mask;
-
-    void setMask();
-
-    void unmask();
 };
 
 #endif //_NETWORK_H

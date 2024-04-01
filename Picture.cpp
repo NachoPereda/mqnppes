@@ -59,7 +59,7 @@ void Picture::readFromFile(const std::string &filename)
 
     file.close();
 
-    //Establecer valor de n
+    // Establecer valor de n
     n = 0;                         // Reiniciar n a 0
     std::regex x_regex("x(\\d+)"); // Expresión regular para buscar x seguido de un número
     for (const auto &row : matrix)
@@ -106,20 +106,38 @@ std::string Picture::getId(int rowIdx, int colIdx)
         std::cerr << "Error: Index out of range." << std::endl;
         return "Error";
     }
-    else 
+    else
         return matrix[static_cast<std::size_t>(rowIdx)][static_cast<std::size_t>(colIdx)].first;
 }
 
-Picture Picture::clone() const {
-    // Utilizar el constructor de copia para crear una nueva instancia
+Picture Picture::clone() const
+{
     return Picture(*this);
 }
 
-const std::vector<std::vector<std::pair<std::string, int>>>& Picture::getMatrix() const {
+const std::vector<std::vector<std::pair<std::string, int>>> &Picture::getMatrix() const
+{
     return matrix;
 }
 
 int Picture::getN() const
 {
     return n;
+}
+
+int Picture::getRows()
+{
+    return matrix.size();
+}
+
+int Picture::getColumns()
+{
+    if (matrix.empty())
+    {
+        return 0; // Si la matriz está vacía, el número de columnas es 0
+    }
+    else
+    {
+        return matrix[0].size(); // Devuelve el número de columnas
+    }
 }
