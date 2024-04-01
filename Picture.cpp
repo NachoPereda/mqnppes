@@ -115,9 +115,15 @@ Picture Picture::clone() const
     return Picture(*this);
 }
 
-const std::vector<std::vector<std::pair<std::string, int>>> &Picture::getMatrix() const
+std::vector<std::vector<std::pair<std::string, int>>> &Picture::getMatrix()
 {
     return matrix;
+}
+
+std::pair<std::string, int> Picture::getMatrixElement( int i, int j)
+{
+    return matrix[i][j];
+
 }
 
 int Picture::getN() const
