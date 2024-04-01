@@ -1,0 +1,4 @@
+Subcadena 1: a
+Subcadena 2: d
+Subcadena 3: 3
+Subcadena 4: 1
