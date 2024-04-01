@@ -1,6 +1,6 @@
 #include <cmath>
 #include <iostream>
-#include "gen.h"
+#include "Gen.h"
 
 std::vector<std::vector<int>> generateBinaryCombinations(int numBits) {
     int numCombinations = std::pow(2, numBits);
