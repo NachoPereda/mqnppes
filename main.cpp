@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Picture.h"
-#include "Gen.h"
+#include "Network/Gen.h"
 // #include "Network/Eval1.h"
 #include <cmath>
 
@@ -73,8 +73,10 @@ int main() {
     //std::cout << "" << std::endl;
     //picture.printMatrix();
 
+    Gen gen;
+
     // Generar todas las Pictures con combinaciones de valores para las etiquetas "x"
-    std::vector<Picture> allPictures = generateAllPictures(picture);
+    std::vector<Picture> allPictures = gen.generateAllPictures(picture);
     
     // Imprimir todas las Pictures generadas
     for (int i = 0; i < int(allPictures.size()); ++i) {

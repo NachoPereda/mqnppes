@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Gen.h"
 
-std::vector<std::vector<int>> generateBinaryCombinations(int numBits)
+std::vector<std::vector<int>> Gen::generateBinaryCombinations(int numBits)
 {
     int numCombinations = std::pow(2, numBits);
     std::vector<std::vector<int>> truthTable(numCombinations, std::vector<int>(numBits, 0));
@@ -65,7 +65,7 @@ std::vector<std::vector<int>> generateBinaryCombinations(int numBits)
 //     return pictures;
 // }
 
-std::vector<Picture> generateAllPictures(Picture &originalPicture)
+std::vector<Picture> Gen::generateAllPictures(Picture &originalPicture)
 {
     std::vector<Picture> pictures;
     Picture currentPicture = originalPicture.clone();
