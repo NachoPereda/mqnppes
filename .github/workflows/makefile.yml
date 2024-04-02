@@ -24,6 +24,8 @@ jobs:
           python-version: '3'
     - name: Python req
       run: pip3 install setuptools
+    - name: Python wheel
+      run: pip install wheel
 
     - name: Python req txt
       run: |
