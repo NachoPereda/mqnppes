@@ -18,6 +18,9 @@ jobs:
     - name: Checkout del código fuente
       uses: actions/checkout@v3
       
+    - name: Python
+      run: python rqmemat.py  
+      
     - name: Make
       run: make
 
