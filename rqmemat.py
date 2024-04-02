@@ -132,7 +132,7 @@ def main():
     print("Picture:")
     for fila in matrix:
         print(fila)
-    print(tabulate(matrix, tablefmt="fancy_grid"))
+    # print(tabulate(matrix, tablefmt="fancy_grid"))
     
     
 
