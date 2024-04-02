@@ -74,6 +74,8 @@ int main() {
     //std::cout << "" << std::endl;
     //picture.printMatrix();
 
+    std::cout << "Gen working: " << std::endl;
+
     Gen gen;
 
     // Generar todas las Pictures con combinaciones de valores para las etiquetas "x"
@@ -85,10 +87,13 @@ int main() {
         allPictures[i].printMatrix();
         std::cout << std::endl;
     }
+
+    std::cout << "Eval1 working with row: " << std::endl;
     
     Eval1 eval;
     eval.SetPictures(allPictures);
     eval.setMask();
+    eval.linearEvaluation();
 
 
     return 0;
