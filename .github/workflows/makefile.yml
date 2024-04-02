@@ -16,7 +16,7 @@ jobs:
       run: echo "hola mundo"
 
     - name: Listar
-      run: ls
+      run: pwd
       
     - name: Make
       run: make Makefile
