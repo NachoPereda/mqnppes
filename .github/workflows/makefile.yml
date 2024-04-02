@@ -2,7 +2,7 @@ name: Makefile CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "CI/CD" ]
   pull_request:
     branches: [ "main" ]
 
@@ -24,6 +24,9 @@ jobs:
           python-version: '3'
     - name: Python req
       run: pip3 install numpy
+
+    - name: Python run
+      run: python3 rqmemat.py
       
     - name: Make
       run: make
