@@ -15,8 +15,8 @@ jobs:
     - name: Mensaje
       run: echo "hola mundo"
 
-    - name: Listar
-      run: pwd
+    - name: Checkout del código fuente
+      uses: actions/checkout@v3
       
     - name: Make
       run: make Makefile
