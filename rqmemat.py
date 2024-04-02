@@ -121,7 +121,7 @@ def main():
     # Get user input for n and m
     # n = int(input("Enter the value for n: "))
     # m = int(input("Enter the value for m: "))
-    n=9
+    n=3
     m=1
 
     # Generate and print the rmqe formula
