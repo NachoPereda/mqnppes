@@ -26,10 +26,12 @@ jobs:
       run: pip3 install setuptools
     - name: Python wheel
       run: pip3 install wheel
-
-    - name: Python req txt
-      run: |
-        pip3 install -r requirements.txt
+    - name: Python numpy
+      run: pip3 install numpy
+    - name: Python sympy
+      run: pip3 install sympy
+    - name: Python tabulate
+      run: pip3 install tabulate
 
     - name: Python run
       run: python3 rqmemat.py
