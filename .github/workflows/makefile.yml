@@ -19,7 +19,7 @@ jobs:
       run: ls
       
     - name: Make
-      run: make
+      run: make Makefile
 
     - name: Run test
       run: ./simulate
