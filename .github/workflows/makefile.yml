@@ -34,7 +34,7 @@ jobs:
       run: pip3 install tabulate
 
     - name: Python run
-      run: python3 rqmemat.py
+      run: python3 rqmemat.py  > matrix.txt
       
     - name: Make
       run: make
