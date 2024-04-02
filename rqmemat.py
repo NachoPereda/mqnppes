@@ -126,7 +126,7 @@ def main():
 
     # Generate and print the rmqe formula
     rmqe_formula = generate_rmqe_formula(n, m)
-    print(f'rmqe = {rmqe_formula}')
+    # print(f'rmqe = {rmqe_formula}')
     # Generate picture from rqme
     matrix = to_matriXx(n,rmqe_formula)
     print("Picture:")
