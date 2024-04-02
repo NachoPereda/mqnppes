@@ -23,7 +23,7 @@ jobs:
       with:
           python-version: '3.X'
     - name: Python req
-      run: pip install numpy | pipreqs rqmemat.py  
+      run: pip install numpy | python rqmemat.py  
       
     - name: Make
       run: make
