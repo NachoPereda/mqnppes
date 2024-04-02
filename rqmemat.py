@@ -119,8 +119,10 @@ def to_matriXx(n, rmqe):
 
 def main():
     # Get user input for n and m
-    n = int(input("Enter the value for n: "))
-    m = int(input("Enter the value for m: "))
+    # n = int(input("Enter the value for n: "))
+    # m = int(input("Enter the value for m: "))
+    n=9
+    m=1
 
     # Generate and print the rmqe formula
     rmqe_formula = generate_rmqe_formula(n, m)
