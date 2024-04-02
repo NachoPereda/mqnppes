@@ -21,9 +21,9 @@ jobs:
     - name: Python setup
       uses: actions/setup-python@v3
       with:
-          python-version: '3.X'
+          python-version: '3'
     - name: Python req
-      run: pip install numpy | python rqmemat.py  
+      run: pip3 install numpy
       
     - name: Make
       run: make
