@@ -23,7 +23,7 @@ jobs:
       with:
           python-version: '3'
     - name: Python req
-      run: pip3 install numpy
+      run: pip3 install -r requirements.txt
 
     - name: Python run
       run: python3 rqmemat.py
