@@ -1,8 +1,8 @@
-name: Makefile CI
+name: Daily
 
 on:
   schedule:
-    - cron: '0 23 * * *'
+    - cron: '0 7 * * *'
 
 jobs:
   build:
