@@ -1,0 +1,41 @@
+name: Daily
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Mensaje
+      run: echo "hola mundo"
+
+    - name: Checkout del código fuente
+      uses: actions/checkout@v3
+      
+    - name: Python setup
+      uses: actions/setup-python@v3
+      with:
+          python-version: '3'
+    - name: Python req
+      run: pip3 install setuptools
+    - name: Python wheel
+      run: pip3 install wheel
+    - name: Python numpy
+      run: pip3 install numpy
+    - name: Python sympy
+      run: pip3 install sympy
+    - name: Python tabulate
+      run: pip3 install tabulate
+
+    - name: Python run
+      run: python3 rqmemat.py  > matrix.txt
+      
+    - name: Make
+      run: make
+
+    - name: Run test
+      run: ./simulate
