@@ -129,7 +129,7 @@ def main():
     # print(f'rmqe = {rmqe_formula}')
     # Generate picture from rqme
     matrix = to_matriXx(n,rmqe_formula)
-    print("Picture:")
+    # print("Picture:")
     for fila in matrix:
         print(fila)
     # print(tabulate(matrix, tablefmt="fancy_grid"))
