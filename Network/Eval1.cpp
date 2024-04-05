@@ -9,17 +9,26 @@
  * Eval1 implementation
  */
 
-void Eval1::linearEvaluation()
+int Eval1::linearEvaluation()
 {
+    int result = 0;
+    pictures[7].printMatrix();
     for (int i = 0; i < pictures[1].getColumns(); i++)
     {
-        if (i%3!=2)
+        if (i%3==0)
         {
-            std::cout << pictures[1].getMatrixElement(mask -1 ,i).first << std::endl;
+            if (pictures[1].getMatrixElement(mask -1 ,i).first == "p(1)"){ // Si es P1 entonces x1 esta en la posicion siguiente
+                result = result + pictures[7].getMatrixElement(mask -1 ,i).second * pictures[1].getMatrixElement(mask -1 ,i+1).second;
+            }
+            else // sino esta en la segunda posicion
+                result = result + pictures[1].getMatrixElement(mask -1 ,i).second * pictures[1].getMatrixElement(mask -1 ,i+2).second;
+            
+
         }
         
         
     }
+    return result;
     
 }
 

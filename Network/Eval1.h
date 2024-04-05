@@ -10,7 +10,7 @@
 class Eval1 : public Network
 {
 public:
-    void linearEvaluation();
+    int linearEvaluation();
     void setMask() override;
 };
 

@@ -2,7 +2,9 @@ name: Makefile CI
 
 on:
   push:
-    branches: [ "CI/CD" ]
+    branches:
+    - main
+    - feature/network
   pull_request:
     branches: [ "main" ]
 

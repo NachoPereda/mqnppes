@@ -87,13 +87,11 @@ int main() {
         allPictures[i].printMatrix();
         std::cout << std::endl;
     }
-
-    std::cout << "Eval1 working with row: " << std::endl;
     
     Eval1 eval;
     eval.SetPictures(allPictures);
     eval.setMask();
-    eval.linearEvaluation();
+    std::cout << eval.linearEvaluation() << std::endl;
 
 
     return 0;
