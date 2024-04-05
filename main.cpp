@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Picture.h"
-#include "Gen.h"
+// #include "Network/Network.h"
+#include "Network/Gen.h"
+#include "Network/Eval1.h"
 #include <cmath>
 
 // std::vector<std::vector<int>> generateBinaryCombinations(int numBits) {
@@ -72,8 +74,12 @@ int main() {
     //std::cout << "" << std::endl;
     //picture.printMatrix();
 
+    std::cout << "Gen working: " << std::endl;
+
+    Gen gen;
+
     // Generar todas las Pictures con combinaciones de valores para las etiquetas "x"
-    std::vector<Picture> allPictures = generateAllPictures(picture);
+    std::vector<Picture> allPictures = gen.generateAllPictures(picture);
     
     // Imprimir todas las Pictures generadas
     for (int i = 0; i < int(allPictures.size()); ++i) {
@@ -81,6 +87,11 @@ int main() {
         allPictures[i].printMatrix();
         std::cout << std::endl;
     }
+    
+    Eval1 eval;
+    eval.SetPictures(allPictures);
+    eval.setMask();
+    std::cout << eval.linearEvaluation() << std::endl;
 
 
     return 0;

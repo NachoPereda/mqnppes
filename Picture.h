@@ -5,19 +5,23 @@
 #include <utility>
 #include <string>
 
-class Picture {
+class Picture
+{
 private:
     std::vector<std::vector<std::pair<std::string, int>>> matrix;
     int n;
 
 public:
-    void readFromFile(const std::string& filename);
+    void readFromFile(const std::string &filename);
     void printMatrix();
     void setValue(int rowIdx, int colIdx, int value);
     std::string getId(int rowIdx, int colIdx);
     Picture clone() const;
-    const std::vector<std::vector<std::pair<std::string, int>>>& getMatrix() const; // Método para acceder a la matriz
+    std::vector<std::vector<std::pair<std::string, int>>> &getMatrix(); // Método para acceder a la matriz
+    std::pair<std::string, int> getMatrixElement( int i, int j);
     int getN() const;
+    int getRows();
+    int getColumns();
 };
 
 #endif // PICTURE_H

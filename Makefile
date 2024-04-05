@@ -8,7 +8,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 
 # Archivos fuente
-SRCS = main.cpp Picture.cpp Gen.cpp Node.cpp Gnode.cpp #main3.cpp Coefficient.cpp Indeterminate.cpp Picture.cpp #plotgen.cpp #main.cpp picture.cpp
+SRCS = main.cpp Picture.cpp Network/Gen.cpp Network/Network.cpp Network/Eval1.cpp #Network/Eval2.cpp Network/Validation.cpp
 
 # Archivos objetos generados a partir de los archivos fuente
 OBJS = $(SRCS:.cpp=.o)
