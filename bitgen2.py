@@ -27,7 +27,7 @@ def calcular_bits(texto, n):
 
 def main():
     texto_ejemplo = "HOLA" #input("Introduce el texto de ejemplo: ")
-    n = int(9) #int(input("Introduce el valor de n: "))
+    n = int(10) #int(input("Introduce el valor de n: "))
 
     variables = calcular_bits(texto_ejemplo, n)
     
