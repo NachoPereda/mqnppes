@@ -17,13 +17,8 @@ int Eval1::linearEvaluation()
     {
         if (i%3==0)
         {
-            if (pictures[1].getMatrixElement(mask -1 ,i).first == "p(1)"){ // Si es P1 entonces x1 esta en la posicion siguiente
-                result = result + pictures[7].getMatrixElement(mask -1 ,i).second * pictures[1].getMatrixElement(mask -1 ,i+1).second;
-            }
-            else // sino esta en la segunda posicion
-                result = result + pictures[1].getMatrixElement(mask -1 ,i).second * pictures[1].getMatrixElement(mask -1 ,i+2).second;
+            result = result + pictures[7].getMatrixElement(mask -1 ,i).second * pictures[1].getMatrixElement(mask -1 ,i+1).second; // Pi * xi
             
-
         }
         
         
