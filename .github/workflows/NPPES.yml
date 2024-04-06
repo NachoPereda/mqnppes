@@ -1,0 +1,49 @@
+name: Makefile CI
+
+on:
+  push:
+    branches:
+    - main
+    - feature/network
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código fuente
+        uses: actions/checkout@v3
+      
+      - name: Python setup
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3'
+      
+      - name: Install dependencies
+        run: |
+          pip3 install setuptools
+          pip3 install wheel
+          pip3 install numpy
+          pip3 install sympy
+          pip3 install tabulate
+
+  compile:
+    needs: setup
+    steps:
+      - name: Make
+        run: make
+
+  python-executions:
+    needs: compile
+    steps:
+      - name: Run Python scripts
+        run: |
+          python3 python_script1.py
+          python3 python_script2.py
+
+  run-simulation:
+    needs: python-executions
+    steps:
+      - name: Run simulation
+        run: ./simulate
