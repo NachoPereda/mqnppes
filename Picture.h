@@ -13,6 +13,7 @@ private:
 
 public:
     void readFromFile(const std::string &filename);
+    void assignCoefficients(const std::string &filename);
     void printMatrix();
     void setValue(int rowIdx, int colIdx, int value);
     std::string getId(int rowIdx, int colIdx);

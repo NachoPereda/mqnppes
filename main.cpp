@@ -65,6 +65,7 @@
 int main() {
     Picture picture;
     picture.readFromFile("matrix.txt");
+    picture.assignCoefficients("coef.txt");
     picture.printMatrix();
 
     // Cambiar el valor de un elemento
