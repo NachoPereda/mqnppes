@@ -1,4 +1,4 @@
-name: Makefile CI
+name: NPPES
 
 on:
   push:
@@ -47,8 +47,8 @@ jobs:
 
       - name: Run Python scripts
         run: |
-          python3 python_script1.py
-          python3 python_script2.py
+          python3 rqmemat.py  > matrix.txt
+          python3 coefgen.py > coef.txt
 
   run-simulation:
     runs-on: ubuntu-latest
@@ -56,6 +56,6 @@ jobs:
     steps:
       - name: Checkout del código fuente
         uses: actions/checkout@v3
-        
+
       - name: Run simulation
         run: ./simulate
