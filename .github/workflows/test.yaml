@@ -31,8 +31,10 @@ jobs:
         pip3 install sympy
         pip3 install tabulate
 
-    - name: Make
-      run: make
+    - name: Python execution
+      run: |
+          python3 rqmemat.py  > matrix.txt
+          python3 coefgen.py > coef.txt
 
     - name: Persistir artefactos
       uses: actions/upload-artifact@v2
