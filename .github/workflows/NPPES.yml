@@ -9,8 +9,8 @@ on:
     branches: [ "main" ]
 
 jobs:
+  runs-on: ubuntu-latest
   setup:
-    runs-on: ubuntu-latest
     steps:
       - name: Checkout del código fuente
         uses: actions/checkout@v3
