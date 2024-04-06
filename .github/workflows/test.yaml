@@ -38,8 +38,9 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: setup-artifacts
-        path: matrix.txt
-        path: coef.txt
+        path: |
+          matrix.txt
+          coef.txt
 
   test:
     runs-on: ubuntu-latest
