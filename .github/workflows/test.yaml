@@ -41,6 +41,24 @@ jobs:
         path: |
           matrix.txt
           coef.txt
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout del código fuente
+      uses: actions/checkout@v3
+
+    - name: Make
+      run: make
+      # Persistir el artefacto generado por make
+      # como parte de los artefactos del job 'setup'
+      # para ser usado en los pasos siguientes.
+    - name: Persistir artefactos de make
+      uses: actions/upload-artifact@v2
+      with:
+        name: make-artifact
+        path: path/to/make/artifact
 
   test:
     runs-on: ubuntu-latest
@@ -54,6 +72,10 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: setup-artifacts
+    - name: Descargar artefactos
+      uses: actions/download-artifact@v2
+      with:
+        name: make-artifact
 
     - name: Run test
       run: ./simulate
