@@ -1,0 +1,26 @@
+name: Makefile CI
+
+on:
+  push:
+    branches:
+    - feature/python
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout del código fuente
+      uses: actions/checkout@v3
+      
+    - name: Python setup
+      uses: actions/setup-python@v3
+      with:
+          python-version: '3'
+
+    - name: Python run
+      run: python3 bitgen2.py

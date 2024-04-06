@@ -14,7 +14,7 @@ def calcular_bits(texto, n):
 
     # Extraer los bits requeridos
     bits_extraidos = bits_hash[:cantidad_bits_total]
-    print("Bits extraídos:", bits_extraidos, " Cantidad de bits:", cantidad_bits_total)
+    #print("Bits extraídos:", bits_extraidos, " Cantidad de bits:", cantidad_bits_total)
 
     # Dividir los bits extraídos en (n-8) variables
     variables_divididas = []
@@ -32,7 +32,7 @@ def main():
     variables = calcular_bits(texto_ejemplo, n)
     
     for i, variable in enumerate(variables):
-        print(f"Variable {i+1}: {variable}")
+        print(variable)
 
 if __name__ == "__main__":
     main()
