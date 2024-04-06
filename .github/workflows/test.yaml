@@ -51,9 +51,8 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Make
-      run: |
-        make
-        chmod +x simulate
+      run: make
+        
       # Persistir el artefacto generado por make
       # como parte de los artefactos del job 'setup'
       # para ser usado en los pasos siguientes.
@@ -80,6 +79,9 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: make-artifact
+
+    - name: Excec permission
+      run: chmod +x simulate
 
     - name: Run test
       run: ./simulate
