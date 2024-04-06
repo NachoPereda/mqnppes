@@ -25,12 +25,12 @@ jobs:
       with:
           python-version: '3'
     - name: Install dependencies
-        run: |
-          pip3 install setuptools
-          pip3 install wheel
-          pip3 install numpy
-          pip3 install sympy
-          pip3 install tabulate
+      run: |
+        pip3 install setuptools
+        pip3 install wheel
+        pip3 install numpy
+        pip3 install sympy
+        pip3 install tabulate
 
     - name: Python run
       run: |
