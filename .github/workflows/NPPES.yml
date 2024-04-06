@@ -9,8 +9,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  runs-on: ubuntu-latest
   setup:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout del código fuente
         uses: actions/checkout@v3
@@ -29,12 +29,14 @@ jobs:
           pip3 install tabulate
 
   compile:
+    runs-on: ubuntu-latest
     needs: setup
     steps:
       - name: Make
         run: make
 
   python-executions:
+    runs-on: ubuntu-latest
     needs: compile
     steps:
       - name: Run Python scripts
@@ -43,6 +45,7 @@ jobs:
           python3 python_script2.py
 
   run-simulation:
+    runs-on: ubuntu-latest
     needs: python-executions
     steps:
       - name: Run simulation
