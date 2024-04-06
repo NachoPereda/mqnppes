@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - main
+    - feature/network
   pull_request:
     branches: [ "main" ]
 
@@ -23,19 +24,18 @@ jobs:
       uses: actions/setup-python@v3
       with:
           python-version: '3'
-    - name: Python req
-      run: pip3 install setuptools
-    - name: Python wheel
-      run: pip3 install wheel
-    - name: Python numpy
-      run: pip3 install numpy
-    - name: Python sympy
-      run: pip3 install sympy
-    - name: Python tabulate
-      run: pip3 install tabulate
+    - name: Install dependencies
+        run: |
+          pip3 install setuptools
+          pip3 install wheel
+          pip3 install numpy
+          pip3 install sympy
+          pip3 install tabulate
 
     - name: Python run
-      run: python3 rqmemat.py  > matrix.txt | python3 coefgen.py > coef.txt
+      run: |
+          python3 rqmemat.py  > matrix.txt
+          python3 coefgen.py > coef.txt
       
     - name: Make
       run: make
