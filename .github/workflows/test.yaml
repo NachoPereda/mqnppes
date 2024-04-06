@@ -63,7 +63,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: {setup, compile}
+    needs: compile
 
     steps:
     - name: Checkout del código fuente

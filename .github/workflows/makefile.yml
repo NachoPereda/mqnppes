@@ -4,7 +4,7 @@ on:
   push:
     branches:
     - main
-    - feature/network
+    #- feature/network
   pull_request:
     branches: [ "main" ]
 
