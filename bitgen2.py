@@ -9,8 +9,8 @@ def calcular_bits(texto, n):
     bits_hash = ''.join(format(byte, '08b') for byte in hash_resultado)
 
     # Calcular la cantidad de bits a extraer
-    cantidad_bits_total = int((n-8)*((n*(n-1)/2) + n + 1))
-    cantidad_bits_por_variable = int(((n*(n-1)/2) + n + 1))
+    cantidad_bits_total = int((n-8)*((n*(n+1)/2) + n + 1))
+    cantidad_bits_por_variable = int(((n*(n+1)/2) + n + 1))
 
     # Extraer los bits requeridos
     bits_extraidos = bits_hash[:cantidad_bits_total]
@@ -27,7 +27,7 @@ def calcular_bits(texto, n):
 
 def main():
     texto_ejemplo = "HOLA" #input("Introduce el texto de ejemplo: ")
-    n = int(10) #int(input("Introduce el valor de n: "))
+    n = int(9) #int(input("Introduce el valor de n: "))
 
     variables = calcular_bits(texto_ejemplo, n)
     
