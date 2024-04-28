@@ -93,11 +93,11 @@ int main() {
     Eval1 eval;
     eval.SetPictures(allPictures);
     eval.setMask();
-    std::cout << eval.linearEvaluation() << std::endl;
+    std::cout << "Linear result:  " << eval.linearEvaluation() << std::endl;
     Eval2 quadeval;
     quadeval.SetPictures(allPictures);
     quadeval.setMask();
-    std::cout << quadeval.quadraticEvaluation() << std::endl;
+    std::cout << "Quadratic result:   " << quadeval.quadraticEvaluation() << std::endl;
 
 
     return 0;

@@ -33,5 +33,4 @@ void Eval2::setMask()
     int numRows = pictures[0].getRows();
     mask = numRows - 3;
     std::cout << "Mask is " << mask << std::endl;
-    std::cout << "pic is " << pictures[7].getMatrixElement(mask - 1, 0).first << std::endl;
 }
