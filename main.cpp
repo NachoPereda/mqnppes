@@ -4,6 +4,7 @@
 #include "Network/Gen.h"
 #include "Network/Eval1.h"
 #include <cmath>
+#include "Network/Eval2.h"
 
 // std::vector<std::vector<int>> generateBinaryCombinations(int numBits) {
 //     int numCombinations = std::pow(2, numBits);
@@ -93,6 +94,10 @@ int main() {
     eval.SetPictures(allPictures);
     eval.setMask();
     std::cout << eval.linearEvaluation() << std::endl;
+    Eval2 quadeval;
+    quadeval.SetPictures(allPictures);
+    quadeval.setMask();
+    std::cout << quadeval.quadraticEvaluation() << std::endl;
 
 
     return 0;
