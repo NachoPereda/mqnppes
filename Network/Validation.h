@@ -6,6 +6,7 @@
 #define _VALIDATION_H
 
 #include "Network.h"
+#include <regex>
 
 class Validation : public Network
 {

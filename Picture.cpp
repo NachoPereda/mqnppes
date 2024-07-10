@@ -91,6 +91,8 @@ void Picture::assignCoefficients(const std::string &filename)
         std::cout << "Reading txt" << std::endl;
         std::regex x_regex("p(\\d*)"); // Expresión regular para buscar p seguido de un número
         int i=0;
+        int fil=0;
+        int col=0;
         for (auto &row : matrix)
         {
             for (auto &elem : row)
@@ -105,9 +107,12 @@ void Picture::assignCoefficients(const std::string &filename)
                     {
                         elem.second = 1;
                     }
+                    this->p_elements.push_back(std::make_pair(fil, col));
                     i++;
                 }
+                col++;
             }
+            fil++;
         }
     }
 
@@ -183,4 +188,9 @@ int Picture::getColumns()
     {
         return matrix[0].size(); // Devuelve el número de columnas
     }
+}
+
+std::vector<std::pair<int, int>> Picture::getPindex()
+{
+    return this->p_elements;
 }

@@ -5,6 +5,7 @@
 #include "Network/Eval1.h"
 #include <cmath>
 #include "Network/Eval2.h"
+#include "Network/Validation.h"
 
 // std::vector<std::vector<int>> generateBinaryCombinations(int numBits) {
 //     int numCombinations = std::pow(2, numBits);
@@ -93,11 +94,20 @@ int main() {
     Eval1 eval;
     eval.SetPictures(allPictures);
     eval.setMask();
-    std::cout << "Linear result:  " << eval.linearEvaluation() << std::endl;
+    std::cout << "---------------------------------------------------------------------------" <<std::endl;
+    std::cout << "Linear result:  " <<std::endl;
+    eval.linearEvaluation();
+    std::cout << "---------------------------------------------------------------------------" <<std::endl;
     Eval2 quadeval;
     quadeval.SetPictures(allPictures);
     quadeval.setMask();
-    std::cout << "Quadratic result:   " << quadeval.quadraticEvaluation() << std::endl;
+    std::cout << "Quadratic result:   " <<std::endl;
+    quadeval.quadraticEvaluation();
+    std::cout << "---------------------------------------------------------------------------" <<std::endl;
+
+    Validation val;
+    val.SetPictures(allPictures);
+    val.validate();
 
 
     return 0;
