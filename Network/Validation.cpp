@@ -36,6 +36,13 @@ void Validation::validate(Picture picture)
         
     }
     std::cout << "Resultado Validacion:  " << result << std::endl;
+
+    if (result==0)
+    {
+        std::cout << "Picture passed:  " << std::endl; 
+        picture.printMatrix();
+
+    }
     
 
     // for (auto& element : p_elements) {
