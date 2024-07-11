@@ -96,18 +96,18 @@ int main() {
     eval.setMask();
     std::cout << "---------------------------------------------------------------------------" <<std::endl;
     std::cout << "Linear result:  " <<std::endl;
-    eval.linearEvaluationiterator();
+    eval.linearEvaluation(allPictures[0]);
     std::cout << "---------------------------------------------------------------------------" <<std::endl;
     Eval2 quadeval;
     quadeval.SetPictures(allPictures);
     quadeval.setMask();
     std::cout << "Quadratic result:   " <<std::endl;
-    quadeval.quadraticEvaluationiterator();
+    quadeval.quadraticEvaluation(allPictures[0]);
     std::cout << "---------------------------------------------------------------------------" <<std::endl;
 
     Validation val;
     val.SetPictures(allPictures);
-    val.validateiterator();
+    val.validate(allPictures[0]);
 
 
     return 0;

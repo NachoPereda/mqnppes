@@ -10,7 +10,8 @@
 class Eval2 : public Network
 {
 public:
-    int quadraticEvaluation();
+    void quadraticEvaluation(Picture picture);
+    void quadraticEvaluationiterator();
     void setMask() override;
 };
 

@@ -11,7 +11,8 @@
 class Validation : public Network
 {
 public:
-    void validate();
+    void validate(Picture picture);
+    void validateiterator();
 };
 
 #endif //_VALIDATION_H
