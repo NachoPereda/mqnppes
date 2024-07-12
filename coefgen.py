@@ -1,5 +1,6 @@
 import hashlib
 import math
+import sys
 
 def calcular_bits(texto, n):
     # Aplicar la función hash SHA256 al texto
@@ -18,16 +19,39 @@ def calcular_bits(texto, n):
 
     # Dividir los bits extraídos en (n-8) variables
     variables_divididas = []
-    for i in range(n - 8):
+    for i in range(1):
         inicio = i * cantidad_bits_por_variable
         fin = inicio + cantidad_bits_por_variable
         variables_divididas.append(bits_extraidos[inicio:fin])
 
     return variables_divididas
 
+def read_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            content = file.read()
+            print("Contenido del archivo:")
+            print(content)
+    except FileNotFoundError:
+        print(f"Error: El archivo '{filename}' no se encontró.")
+
 def main():
-    texto_ejemplo = "HOLA" #input("Introduce el texto de ejemplo: ")
-    n = int(9) #int(input("Introduce el valor de n: "))
+    if len(sys.argv) != 3:
+        print("Uso: python script.py <nombre_archivo_texto> <valor_de_n>")
+        return
+    
+    filename = sys.argv[1]
+    n = int(sys.argv[2])
+
+    try:
+        with open(filename, 'r') as file:
+            texto_ejemplo = file.read().strip()  # Leer el contenido del archivo y quitar espacios en blanco al inicio y al final
+    except FileNotFoundError:
+        print(f"Error: El archivo '{filename}' no se encontró.")
+        return
+
+    # texto_ejemplo = "HOLA" #input("Introduce el texto de ejemplo: ")
+    # n = int(16) #int(input("Introduce el valor de n: "))
 
     variables = calcular_bits(texto_ejemplo, n)
     

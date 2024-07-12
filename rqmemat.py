@@ -2,6 +2,7 @@ import numpy as np
 from sympy import symbols, collect
 import re
 from tabulate import tabulate
+import sys
 
 def generate_rmqe_formula(n, m):
     rmqe_formula = ""
@@ -121,7 +122,14 @@ def main():
     # Get user input for n and m
     # n = int(input("Enter the value for n: "))
     # m = int(input("Enter the value for m: "))
-    n=9
+
+    if len(sys.argv) != 2:
+        print("Uso: python rqmemat.py  <valor_de_n>")
+        return
+    
+    n = int(sys.argv[1])
+
+    # n=9
     m=1
 
     # Generate and print the rmqe formula

@@ -64,10 +64,21 @@
 //     return pictures;
 // }
 
-int main() {
+int main(int argc, char* argv[]) {
+    // Verifica que se hayan pasado los argumentos necesarios
+    if (argc < 3) {
+        std::cerr << "Uso: " << argv[0] << " <fichero_matrix> <fichero_coef>" << std::endl;
+        return 1;
+    }
+
+    // Asigna los nombres de los ficheros a variables
+    std::string matrixFile = argv[1];
+    std::string coefFile = argv[2];
     Picture picture;
-    picture.readFromFile("matrix.txt");
-    picture.assignCoefficients("coef.txt");
+    // picture.readFromFile("matrix.txt");
+    // picture.assignCoefficients("coef.txt");
+    picture.readFromFile(matrixFile);
+    picture.assignCoefficients(coefFile);
     picture.printMatrix();
 
     // Cambiar el valor de un elemento
