@@ -37,7 +37,7 @@ jobs:
           python3 coefgen.py > coef.txt
 
     - name: Persistir artefactos
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: setup-artifacts
         path: |
@@ -59,7 +59,7 @@ jobs:
       # como parte de los artefactos del job 'setup'
       # para ser usado en los pasos siguientes.
     - name: Persistir artefactos de make
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: make-artifact
         path: simulate
@@ -73,12 +73,12 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Descargar artefactos de setup
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: setup-artifacts
 
     - name: Descargar artefactos de compile
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: make-artifact
 
