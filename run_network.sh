@@ -38,8 +38,8 @@ do
     output_main_file="out_n_$n/outputmain${i}.txt"
 
     if [ -f "$coef_file" ]; then
-        ./simulate "$output_matrix_file" "$coef_file" > "$output_main_file"
-        echo "Ejecución $i: ./simulate $output_matrix_file $coef_file > $output_main_file"
+        ./simulate "$output_matrix_file" "$coef_file" # > "$output_main_file"
+        echo "Ejecución $i: ./simulate $output_matrix_file $coef_file "#> $output_main_file"
     else
         echo "El fichero $coef_file no existe"
     fi

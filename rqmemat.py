@@ -130,16 +130,16 @@ def main():
     n = int(sys.argv[1])
 
     # n=9
-    m=1
+    m=2
 
     # Generate and print the rmqe formula
     rmqe_formula = generate_rmqe_formula(n, m)
-    # print(f'rmqe = {rmqe_formula}')
+    print(f'rmqe = {rmqe_formula}')
     # Generate picture from rqme
     matrix = to_matriXx(n,rmqe_formula)
     # print("Picture:")
-    for fila in matrix:
-        print(fila)
+    # for fila in matrix:
+    #     print(fila)
     # print(tabulate(matrix, tablefmt="fancy_grid"))
     
     

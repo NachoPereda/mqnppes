@@ -20,7 +20,7 @@ void Validation::validate(Picture picture)
     int result=0;
     int nfil = picture.getRows();
     int ncol = picture.getColumns();
-    std::cout << "Evaluando XOR de:  " << std::endl;
+    // std::cout << "Evaluando XOR de:  " << std::endl;
 
     for (int i = 0; i < nfil; i++)
     {
@@ -29,13 +29,13 @@ void Validation::validate(Picture picture)
             std::string res = picture.getMatrixElement(i, j).first;
             
             if(std::regex_search(res, pattern)){
-                std::cout <<  picture.getMatrixElement(i, j).first << std::endl;
+                // std::cout <<  picture.getMatrixElement(i, j).first << std::endl;
                 result ^= picture.getMatrixElement(i, j).second;
             }
         }
         
     }
-    std::cout << "Resultado Validacion:  " << result << std::endl;
+    // std::cout << "Resultado Validacion:  " << result << std::endl;
 
     if (result==0)
     {

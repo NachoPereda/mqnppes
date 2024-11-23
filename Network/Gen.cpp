@@ -17,14 +17,14 @@ std::vector<std::vector<int>> Gen::generateBinaryCombinations(int numBits)
         }
     }
 
-    for (const auto &row : truthTable)
-    {
-        for (int value : row)
-        {
-            std::cout << value << " ";
-        }
-        std::cout << std::endl;
-    }
+    // for (const auto &row : truthTable)
+    // {
+    //     for (int value : row)
+    //     {
+    //         std::cout << value << " ";
+    //     }
+    //     std::cout << std::endl;
+    // }
 
     return truthTable;
 }
